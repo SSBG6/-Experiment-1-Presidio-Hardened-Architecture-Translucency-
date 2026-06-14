@@ -378,3 +378,13 @@ See results-hpa.png
 <img width="1416" height="1165" alt="demo-results-hpa" src="https://github.com/user-attachments/assets/421975b4-e5d7-4524-8929-7b341a715599" />
 This graph illustrates the Horizontal Pod Autoscaler (HPA) response to a sudden increase in workload. It shows the temporary performance degradation during scale-out and the eventual recovery once additional replicas become available.
 
+
+# Conclusion
+The Presidio Hardened Architecture Translucency tool was successfully tested using all scenarios. The experiments also highlighted the importance of proper scaling, HPA configuration, and pre-provisioning when handling traffic spikes.
+Overall, the tool is useful for analyzing architectural scaling decisions and understanding the trade-offs between performance, cost, and system reliability.
+
+# References
+
+Presidio Hardened Architecture Translucency GitHub Repository:
+https://github.com/presidio-v/presidio-hardened-arch-translucency
+
