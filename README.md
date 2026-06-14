@@ -1,14 +1,14 @@
 
-#Environment
+# Environment
 Operating System: Windows 11
 Python Version: 3.12
 IDE: Visual Studio Code/ cmd
 Tool Version: Presidio Hardened Architecture Translucency v0.8.0
 
-#Saluka Subasinghe 
-#ID: 100007818
+# Saluka Subasinghe 
+# ID: 100007818
 
-#test 1
+# Test 1 pat analyze
 pat analyze -r 100 -l 50 -c container --show-all
 2026-06-13 20:47:35,793 [INFO] presidio.arch_translucency.audit — SECURITY_EVENT event='CLI_INVOCATION' context={'version': '0.8.0'}
 2026-06-13 20:47:35,837 [WARNING] presidio.arch_translucency.security — Dependency CVE audit: VULNERABILITIES FOUND
@@ -48,7 +48,7 @@ may be inaccurate outside this range or for non-async (single-threaded / CPU-bou
 
 Baseline: 100 req/s @ 50.0 ms  (current layer: container)
 
-#Test 2
+# Test 2 demo (docker)
 C:\Users\ROG ZEYPHRUS>pat analyze --requests-per-second 500 --avg-latency-ms 80 --current-layer container
 2026-06-13 20:53:19,446 [INFO] presidio.arch_translucency.audit — SECURITY_EVENT event='CLI_INVOCATION' context={'version': '0.8.0'}
 2026-06-13 20:53:19,492 [WARNING] presidio.arch_translucency.security — Dependency CVE audit: VULNERABILITIES FOUND
@@ -74,7 +74,7 @@ may be inaccurate outside this range or for non-async (single-threaded / CPU-bou
 
 Baseline: 100 req/s @ 80.0 ms  (current layer: container)
 
-#test 3
+# Test 3 demo with output (docker)
 C:\Users\ROG ZEYPHRUS>pat demo --replicas 6 --requests 80 --concurrency 12 --cost-per-container-hour 0.05 --output results.png
 2026-06-13 22:09:41,162 [INFO] presidio.arch_translucency.audit — SECURITY_EVENT event='CLI_INVOCATION' context={'version': '0.8.0'}
 2026-06-13 22:09:41,210 [WARNING] presidio.arch_translucency.security — Dependency CVE audit: VULNERABILITIES FOUND
@@ -168,7 +168,7 @@ HPA plot saved → results-hpa.png
 ──────────────────────────────────────────────────────────╯
 2026-06-13 22:11:37,320 [INFO] presidio.arch_translucency.audit — SECURITY_EVENT event='DEMO_COMPLETE' context={'variants': 3}
 
-# test 4: cost analysis
+# Test 4: cost analysis
 C:\Users\ROG ZEYPHRUS>pat cost --requests-per-second 500 --avg-latency-ms 80 --current-layer container --cost-per-container-hour 0.02 --cost-per-pod-hour 0.05 --cost-per-deployment-hour 0.10 --cost-per-node-hour 0.50
 2026-06-14 22:52:05,353 [INFO] presidio.arch_translucency.audit — SECURITY_EVENT event='CLI_INVOCATION' context={'version': '0.8.0'}
 2026-06-14 22:52:05,395 [WARNING] presidio.arch_translucency.security — Dependency CVE audit: VULNERABILITIES FOUND
@@ -208,7 +208,7 @@ non-async (single-threaded / CPU-bound) workloads.
 Baseline: 100 req/s @ 80.0 ms  (current layer: container)
 ROI score = throughput-gain-% / cost-per-request  (higher = better performance-per-dollar)
 
-# test 5 AWS cost alaysis
+# Test 5 AWS cost alaysis
 C:\Users\ROG ZEYPHRUS>pat cost --requests-per-second 500 --avg-latency-ms 80 --current-layer container --cloud aws --region us-east-1 --instance-type m5.large
 2026-06-14 22:53:15,125 [INFO] presidio.arch_translucency.audit — SECURITY_EVENT event='CLI_INVOCATION' context={'version': '0.8.0'}
 2026-06-14 22:53:15,172 [WARNING] presidio.arch_translucency.security — Dependency CVE audit: VULNERABILITIES FOUND
@@ -283,7 +283,7 @@ HPA timing: 15 s poll + 30 s startup = 45 s trough
 │   → Pre-provision 2 replicas and re-evaluate.                                                                        │
 ╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 
-#test 7 SLO high traffic analysis
+# Test 6 SLO High Traffic Analysis
 C:\Users\ROG ZEYPHRUS>pat slo --requests-per-second 500 --avg-latency-ms 120 --p99-target-ms 400 --spike-multiplier 5.0
 2026-06-14 22:55:43,422 [INFO] presidio.arch_translucency.audit — SECURITY_EVENT event='CLI_INVOCATION' context={'version': '0.8.0'}
 2026-06-14 22:55:43,463 [WARNING] presidio.arch_translucency.security — Dependency CVE audit: VULNERABILITIES FOUND
@@ -317,7 +317,7 @@ HPA timing: 15 s poll + 30 s startup = 45 s trough
 │   → Pre-provision 39 replicas and re-evaluate.                                                                       │
 ╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 
-#test 8; what if 
+# Test 8 What IF
 C:\Users\ROG ZEYPHRUS>pat what-if --current-rps 50 --spike-rps 200 --avg-latency-ms 80 --current-layer container
 2026-06-14 22:56:28,932 [INFO] presidio.arch_translucency.audit — SECURITY_EVENT event='CLI_INVOCATION' context={'version': '0.8.0'}
 2026-06-14 22:56:28,969 [WARNING] presidio.arch_translucency.security — Dependency CVE audit: VULNERABILITIES FOUND
