@@ -1,4 +1,15 @@
-at analyze -r 100 -l 50 -c container --show-all
+
+#Environment
+Operating System: Windows 11
+Python Version: 3.12
+IDE: Visual Studio Code/ cmd
+Tool Version: Presidio Hardened Architecture Translucency v0.8.0
+
+#Saluka Subasinghe 
+#ID: 100007818
+
+#test 1
+pat analyze -r 100 -l 50 -c container --show-all
 2026-06-13 20:47:35,793 [INFO] presidio.arch_translucency.audit — SECURITY_EVENT event='CLI_INVOCATION' context={'version': '0.8.0'}
 2026-06-13 20:47:35,837 [WARNING] presidio.arch_translucency.security — Dependency CVE audit: VULNERABILITIES FOUND
 
@@ -37,6 +48,7 @@ may be inaccurate outside this range or for non-async (single-threaded / CPU-bou
 
 Baseline: 100 req/s @ 50.0 ms  (current layer: container)
 
+#Test 2
 C:\Users\ROG ZEYPHRUS>pat analyze --requests-per-second 500 --avg-latency-ms 80 --current-layer container
 2026-06-13 20:53:19,446 [INFO] presidio.arch_translucency.audit — SECURITY_EVENT event='CLI_INVOCATION' context={'version': '0.8.0'}
 2026-06-13 20:53:19,492 [WARNING] presidio.arch_translucency.security — Dependency CVE audit: VULNERABILITIES FOUND
@@ -62,6 +74,7 @@ may be inaccurate outside this range or for non-async (single-threaded / CPU-bou
 
 Baseline: 100 req/s @ 80.0 ms  (current layer: container)
 
+#test 3
 C:\Users\ROG ZEYPHRUS>pat demo --replicas 6 --requests 80 --concurrency 12 --cost-per-container-hour 0.05 --output results.png
 2026-06-13 22:09:41,162 [INFO] presidio.arch_translucency.audit — SECURITY_EVENT event='CLI_INVOCATION' context={'version': '0.8.0'}
 2026-06-13 22:09:41,210 [WARNING] presidio.arch_translucency.security — Dependency CVE audit: VULNERABILITIES FOUND
